@@ -1,5 +1,6 @@
 /**
- * @file    
+ * @file    Resolvers for user collection
+ * @author  Ric Mershon
  */
 
 // External Dependencies
@@ -19,9 +20,10 @@ import User from '../../../models/user';
  * @returns a token and the user document.
  */
 
-export async function createUser(args) {
+ export async function createUser(args) {
 
     try {
+        
         console.log("*** CREATING USER ***\n", args, "\n");
 
         // Deconstruct arguments from userInput.
@@ -62,6 +64,44 @@ export async function createUser(args) {
 
     } catch(error) {
       throw error;
+    }
+}
+
+/**
+ * updateUser() updates database user information.
+ * 
+ * @param {Object} args: contains updatedUserInput object with document _id,
+ * firstName, lastName and organization 
+ * @returns object containing updated user inforation.
+ */
+
+export async function updateUser(args) {
+
+    try {
+        
+        console.log("*** UPDATING USER ***\n", args, "\n");
+
+        // Deconstruct arguments from updatedUserInput.
+
+        const {
+            _id,
+            firstName,
+            lastName,
+            organization
+        } = args.updateUserInput;
+
+        // Find the user document by its id, update the information
+        // provided and return.
+        
+        const user = await User.findById(_id);
+        user.firstName = firstName;
+        user.lastName = lastName;
+        user.organization = organization;
+        const savedUser = await user.save()
+        return { ...savedUser._doc }
+
+    } catch (error) {
+        throw error;
     }
 }
 
@@ -123,7 +163,7 @@ export async function verifyToken(args) {
         const existingUser = await User.findOne({ _id: decoded.id })
         return { ...existingUser._doc, password: null };
 
-    } catch (err) {
-        throw err;
+    } catch (error) {
+        throw error;
     }
 }

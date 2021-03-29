@@ -1,3 +1,10 @@
+/**
+ * @file    MongoDB model
+ * @author  Ric Mershon
+ */
+
+// External Dependencies
+
 import mongoose, { Schema } from 'mongoose';
 
 const userSchema = new Schema({
@@ -10,6 +17,18 @@ const userSchema = new Schema({
         required: true,
         min: 8,
         max: 32
+    },
+    firstName: {
+        type: String,
+        required: false
+    },
+    lastName: {
+        type: String,
+        required: false
+    },
+    organization: {
+        type: String,
+        required: false
     }
 })
 
