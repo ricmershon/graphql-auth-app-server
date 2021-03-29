@@ -22,6 +22,7 @@ import User from '../../../models/user';
 export async function createUser(args) {
 
     try {
+        console.log("*** CREATING USER ***\n", args, "\n");
 
         // Deconstruct arguments from userInput.
 
@@ -73,6 +74,8 @@ export async function createUser(args) {
 
 export async function authenticateUser(args) {
     
+    console.log("*** AUTHENTICATING USER ***\n", args, "\n");
+
     try {
 
         // Check for user existence.
@@ -108,6 +111,8 @@ export async function authenticateUser(args) {
  */
 
 export async function verifyToken(args) {
+
+    console.log("*** VERIFYING TOKEN ***\n", args, "\n");
 
     try {
 

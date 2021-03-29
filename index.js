@@ -26,7 +26,6 @@ const mongodbURI =
     process.env.DB_PASS + "@cluster0.dtbwe.mongodb.net/" +
     process.env.DB_NAME + "?retryWrites=true&w=majority"
 
-
 // Middleware
 
 app.use(cors(), bodyParser.json())
@@ -44,9 +43,8 @@ app.use(
 mongoose.connect(
     mongodbURI,
     { useNewUrlParser: true, useUnifiedTopology: true },
-    () => console.log("MongoDB ", process.env.DB_NAME, " is connected")
-)
+    () => console.log(`MongoDB '${process.env.DB_NAME}' is connected`))
 
 // Server listener
 
-app.listen(PORT, () => console.log("Server is istening on port", PORT));
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`))

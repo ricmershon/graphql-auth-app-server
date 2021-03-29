@@ -1,5 +1,4 @@
-// graphql/resolvers/handleGenerators/index.js
-import * as authHandlers from './handlerGenerators';
+import * as UserResolvers from './UserResolvers';
 export default {
-  ...authHandlers
+  ...UserResolvers
 }
