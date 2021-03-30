@@ -13,6 +13,7 @@ export default buildSchema(`
         firstName: String
         lastName: String
         organization: String
+        badgeNumber: Int
     }
     input UserInput {
         email: String!
@@ -24,14 +25,20 @@ export default buildSchema(`
         firstName: String
         lastName: String
         organization: String
+        badgeNumber: Int
+    }
+    input DeleteUser {
+        _id:ID!
     }
     type RootQuery {
         authenticateUser(email: String!, password: String!): User
+        readUser(_id: ID!): User
         verifyToken(token: String!): User
     }
     type RootMutation {
         createUser(userInput: UserInput): User
         updateUser(updateUserInput: UpdateUserInput): User
+        deleteUser(deleteUserInput: DeleteUser): User
     }
     schema {
         query: RootQuery

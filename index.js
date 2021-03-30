@@ -7,7 +7,7 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
-import {graphqlHTTP} from 'express-graphql';
+import { graphqlHTTP } from 'express-graphql';
 import cors from 'cors';
 import mongoose from 'mongoose';
 

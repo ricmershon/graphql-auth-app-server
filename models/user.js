@@ -29,6 +29,10 @@ const userSchema = new Schema({
     organization: {
         type: String,
         required: false
+    },
+    badgeNumber: {
+        type: Number,
+        required: false
     }
 })
 
