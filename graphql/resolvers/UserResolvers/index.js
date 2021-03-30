@@ -197,6 +197,7 @@ export async function updateUser({updateUserInput: {
 
 /**
  * readUser() returns a document for a single user.
+ * 
  * @param {ID} _id: _id of the user document to be retrieved. 
  * @returns user document.
  */
