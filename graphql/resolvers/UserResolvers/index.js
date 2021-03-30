@@ -110,7 +110,7 @@ export async function createUser({userInput: {
 
         console.log("*** AUTHENTICATING USER ***");
         console.log(`email: ${email}`);
-        console.log(`password: ${password}`);
+        console.log(`password: ${password}\n`);
     
         // Check for user existence and validate password.
 
