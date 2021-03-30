@@ -21,11 +21,11 @@ import User from '../../../models/user';
  * @returns a token and the user document.
  */
 
-export async function createUser({userInput: {
+export const createUser = async ({userInput: {
     email,
     password,
     confirmPassword
-}}) {
+}}) => {
 
     try {
         
@@ -77,7 +77,7 @@ export async function createUser({userInput: {
  * @returns user document.
  */
 
- export async function verifyToken({token}) {
+export const verifyToken = async ({ token }) => {
 
     console.log("*** VERIFYING TOKEN ***\n", token, "\n");
 
@@ -104,7 +104,7 @@ export async function createUser({userInput: {
  * @returns token and the user document.
  */
 
- export async function authenticateUser({email, password}) {
+export const authenticateUser = async ({ email, password }) => {
     
     try {
 
@@ -149,13 +149,13 @@ export async function createUser({userInput: {
  * @returns an object containing updated user information.
  */
 
-export async function updateUser({updateUserInput: {
+export const updateUser = async ({updateUserInput: {
     _id,
     firstName,
     lastName,
     organization,
     badgeNumber
-}}) {
+}}) => {
 
     try {
         
@@ -202,9 +202,10 @@ export async function updateUser({updateUserInput: {
  * @returns user document.
  */
 
- export async function readUser({_id}) {
+export const readUser = async ({ _id }) => {
+
     try {
-        console.log("*** DELETING USER ***");
+        console.log("*** READING USER ***");
         console.log(`_id: ${_id}\n`);
 
         // Check for user existence, delete user and return a record of the
@@ -229,7 +230,7 @@ export async function updateUser({updateUserInput: {
  * @returns document id of user deleted
  */
 
-export async function deleteUser({deleteUserInput}) {
+export const deleteUser = async ({ deleteUserInput }) => {
     
     try {
 
